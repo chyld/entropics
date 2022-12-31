@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.App #start {
+  background-color: greenyellow;
+  color: green;
+  border: 1px solid green;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.App #content {
+  color: red;
+  font-size: 80px;
+}
+
+.App #guess {
+  width: 80%;
+  font-size: 50px;
+  padding: 20px;
+  color:darkslateblue;
+  border: 1px dashed darkslateblue;
+  text-align: center;
+}
