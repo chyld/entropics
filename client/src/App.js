@@ -6,7 +6,7 @@ function App() {
   const [answer, setAnswer] = useState();
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/");
+    const response = await fetch("http://localhost:8000/");
     const obj = await response.json();
     let html = window.MathJax.tex2svg(obj.problem);
     setHtml(html.outerHTML);
