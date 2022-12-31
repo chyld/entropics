@@ -1,16 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const sqlite3 = require("sqlite3").verbose();
-const { basics } = require("./math");
+const { choose } = require("./math");
 
-const port = 4444;
+const port = 3001;
 const db = new sqlite3.Database("./data.db");
 
 const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {
-  const { problem, answer } = basics();
+  const { problem, answer } = choose()();
   res.json({ problem, answer });
 });
 
