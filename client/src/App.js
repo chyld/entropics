@@ -16,8 +16,8 @@ function App() {
   };
 
   const checkAnswer = (event) => {
-    const guess = parseInt(event.target.value);
-    if (guess === answer) {
+    const guess = event.target.value;
+    if (guess === answer.toString()) {
       event.target.value = "";
       fetchData();
     }

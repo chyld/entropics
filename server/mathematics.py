@@ -3,7 +3,7 @@ from operator import add, sub
 
 
 def randomizer():
-    fns = [add_sub, mul, div, mod, square_root, binary]
+    fns = [add_sub, mul, div, mod, square_root, binary, greek]
     fn = choice(fns)
     return fn
 
@@ -53,4 +53,37 @@ def binary():
     a = randint(0, 15)
     problem = rf"{a:#06b}"  # 6 total digits = 0b + 4 digits, pad with zeros
     answer = a
+    return problem, answer
+
+
+def greek():
+    letters = [
+        "alpha",
+        "beta",
+        "gamma",
+        "delta",
+        "epsilon",
+        "zeta",
+        "eta",
+        "theta",
+        "iota",
+        "kappa",
+        "lambda",
+        "mu",
+        "nu",
+        "xi",
+        "omicron",
+        "pi",
+        "rho",
+        "sigma",
+        "tau",
+        "upsilon",
+        "phi",
+        "chi",
+        "psi",
+        "omega",
+    ]
+    letter = choice(letters)
+    problem = rf"\{letter}"
+    answer = f"{letter}"
     return problem, answer
