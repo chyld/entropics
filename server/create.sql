@@ -1,8 +1,12 @@
-CREATE TABLE cards (
-	id INTEGER PRIMARY KEY,
-	info TEXT NOT NULL
+CREATE TABLE scores (
+	iid TEXT PRIMARY KEY,
+	name TEXT NOT NULL,
+	amount INTEGER NOT NULL,
+	count INTEGER NOT NULL,
+	start TEXT NOT NULL,
+	stop TEXT,
+	seconds INTEGER,
+	score REAL
 );
 
-INSERT INTO cards (info) values ("\alpha = 3^2 + 7 - 11 + \beta_2");
-
-SELECT * from cards;
+SELECT * from scores;
