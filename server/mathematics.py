@@ -3,7 +3,7 @@ from operator import add, sub
 
 
 def randomizer():
-    fns = [add_sub, mul, div, mod, square_root, binary, greek]
+    fns = [add_sub, mul, div, mod, square_root, binary, greek, equation]
     fn = choice(fns)
     return fn
 
@@ -50,9 +50,18 @@ def square_root():
 
 
 def binary():
-    a = randint(0, 15)
-    problem = rf"{a:#06b}"  # 6 total digits = 0b + 4 digits, pad with zeros
+    a = randint(0, 63)  # (2 ** 6) - 1
+    problem = rf"{a:#08b}"  # 8 total digits = 0b + 6 digits, pad with zeros
     answer = a
+    return problem, answer
+
+
+def equation():
+    a = randint(1, 20)
+    b = randint(1, 100)
+    c = randint(1, 100)
+    problem = rf"{a}x + {b} = {c}"
+    answer = int((c - b) / a)
     return problem, answer
 
 

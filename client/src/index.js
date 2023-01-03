@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import Practice from "./Practice/Practice";
 import App from "./App";
 import Performance from "./Performance";
 import reportWebVitals from "./reportWebVitals";
@@ -12,8 +13,8 @@ const router = createBrowserRouter([
     element: <h1>Goodbye Entropy</h1>,
   },
   {
-    path: "/practice/chyld",
-    element: <App />,
+    path: "/practice",
+    element: <Practice />,
   },
   {
     path: "/evaluate",
