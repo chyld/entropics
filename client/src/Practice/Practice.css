@@ -1,5 +1,20 @@
 .Practice > #header {
-    padding: 20px;
-    border-bottom: 3px double rebeccapurple;
-    margin-bottom: 50px;
+    padding: 10px;
+    border-bottom: 3px double #E63946;
+    margin-bottom: 10px;
+}
+
+.Practice h1 {
+    color: #1D3557;
+    display: inline-block;
+    margin-right: 25px;
+    font-size: 50px;
+}
+
+.Practice button {
+    color: #1D3557;
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    font-size: 30px;
 }

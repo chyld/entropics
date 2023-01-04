@@ -22,7 +22,7 @@ function Question({ random }) {
 
   const checkAnswer = (event) => {
     const guess = event.target.value;
-    if (guess === answer.toString()) {
+    if (guess === answer.toString() || guess === "skip") {
       displayQuestion();
     }
   };
