@@ -5,7 +5,11 @@ import { useState } from "react";
 function Practice() {
   const [random, setRandom] = useState();
 
-  function nextQuestion() {
+  function done() {
+    next();
+  }
+
+  function next() {
     setRandom(Math.random());
   }
 
@@ -13,9 +17,9 @@ function Practice() {
     <div className="Practice">
       <div id="header">
         <h1>Practice</h1>
-        <button onClick={nextQuestion}>Next</button>
+        <button onClick={next}>Next</button>
       </div>
-      <Question random={random}></Question>
+      <Question random={random} done={done}></Question>
     </div>
   );
 }

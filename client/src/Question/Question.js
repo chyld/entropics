@@ -1,7 +1,7 @@
 import "./Question.css";
 import { useState, useEffect } from "react";
 
-function Question({ random }) {
+function Question({ random, done }) {
   const [html, setHtml] = useState();
   const [answer, setAnswer] = useState();
 
@@ -13,7 +13,7 @@ function Question({ random }) {
   };
 
   const fetchQuestion = async () => {
-    const response = await fetch("http://localhost:8000/");
+    const response = await fetch("http://localhost:8000/question");
     const obj = await response.json();
     let html = window.MathJax.tex2svg(obj.problem);
     setHtml(html.outerHTML);
@@ -23,7 +23,7 @@ function Question({ random }) {
   const checkAnswer = (event) => {
     const guess = event.target.value;
     if (guess === answer.toString() || guess === "skip") {
-      displayQuestion();
+      done();
     }
   };
 

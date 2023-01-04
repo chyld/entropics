@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Practice from "./Practice/Practice";
+import Evaluate from "./Evaluate/Evaluate";
 import App from "./App";
 import Performance from "./Performance";
 import reportWebVitals from "./reportWebVitals";
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/evaluate",
-    element: <Performance />,
+    element: <Evaluate />,
   },
 ]);
 

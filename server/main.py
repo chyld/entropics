@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 
-@app.get("/")
+@app.get("/question")
 def read_root():
     p, a = randomizer()()
     return {"problem": p, "answer": a}
