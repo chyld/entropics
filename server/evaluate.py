@@ -3,40 +3,37 @@ from uuid import uuid4
 from datetime import datetime
 
 
-def start(name, amount):
+def register(name, amount):
     iid = uuid4()
     start_time = datetime.now()
     con = sqlite3.connect("data.db")
     cur = con.cursor()
     cur.execute(
-        "INSERT INTO scores (iid, name, amount, count, start) VALUES (?, ?, ?, ?, ?)",
-        [str(iid), name, amount, 0, str(start_time)],
+        "INSERT INTO scores (iid, name, amount, start) VALUES (?, ?, ?, ?)",
+        [str(iid), name, amount, str(start_time)],
     )
     con.commit()
     con.close()
     return iid
 
 
-def proceed(iid):
+def results(iid):
     seconds, score = 0, 0
     con = sqlite3.connect("data.db")
     cur = con.cursor()
-    res = cur.execute("SELECT amount, count, start FROM scores WHERE iid = ?", [iid])
-    amount, count, start = res.fetchone()
-    count += 1
+    res = cur.execute("SELECT amount, start FROM scores WHERE iid = ?", [iid])
 
-    if count > amount:
-        start = datetime.fromisoformat(start)
-        stop = datetime.now()
-        seconds = (stop - start).seconds
-        score = seconds / amount
-        cur.execute(
-            "UPDATE scores SET count = ?, stop = ?, seconds = ?, score = ? WHERE iid = ?",
-            [count, str(stop), seconds, score, iid],
-        )
-    else:
-        cur.execute("UPDATE scores SET count = ? WHERE iid = ?", [count, iid])
+    amount, start = res.fetchone()
+    start = datetime.fromisoformat(start)
+    stop = datetime.now()
+    seconds = (stop - start).seconds
+    score = seconds / amount
+
+    cur.execute(
+        "UPDATE scores SET stop = ?, seconds = ?, score = ? WHERE iid = ?",
+        [str(stop), seconds, score, iid],
+    )
 
     con.commit()
     con.close()
-    return count <= amount, seconds, score
+    return seconds, score
