@@ -1,5 +1,5 @@
-import "./Question.css";
 import { useState, useEffect } from "react";
+import "./Question.css";
 
 function Question({ random, done }) {
   const [html, setHtml] = useState();

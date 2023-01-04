@@ -2,6 +2,7 @@ import { useState } from "react";
 import Registration from "../Registration/Registration";
 import Question from "../Question/Question";
 import Score from "../Score/Score";
+import "./Evaluate.css";
 
 function Evaluate() {
   const [iid, setIid] = useState();
@@ -19,14 +20,20 @@ function Evaluate() {
     setAmount(amount);
   }
 
-  function next() {
-    setCount(count + 1);
-    setRandom(Math.random());
+  function reset() {
+    setCount(1);
+    setIid(null);
+    setFinished(false);
   }
 
   function done() {
     if (count !== amount) next();
     else score();
+  }
+
+  function next() {
+    setCount(count + 1);
+    setRandom(Math.random());
   }
 
   async function score() {
@@ -43,12 +50,19 @@ function Evaluate() {
   }
 
   return (
-    <div>
-      <div>evaluate</div>
+    <div className="Evaluate">
+      <h1>Evaluation</h1>
 
-      <div>
-        {iid} <br /> {name} <br /> {amount} <br /> {count}
-      </div>
+      <button onClick={reset}>Reset</button>
+
+      {iid && (
+        <div id="header">
+          iid<span className="info">{iid}</span>
+          name<span className="info">{name}</span>
+          amount<span className="info">{amount}</span>
+          count<span className="info">{count}</span>
+        </div>
+      )}
 
       {!iid && (
         <Registration
@@ -58,7 +72,9 @@ function Evaluate() {
 
       {iid && !finished && <Question random={random} done={done}></Question>}
 
-      {finished && <Score seconds={seconds} result={result}></Score>}
+      {finished && (
+        <Score seconds={seconds} result={result} amount={amount}></Score>
+      )}
     </div>
   );
 }

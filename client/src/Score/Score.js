@@ -1,9 +1,11 @@
-function Score({ seconds, result }) {
+import "./Score.css";
+
+function Score({ seconds, result, amount }) {
   return (
-    <div>
-      <div>score</div>
-      <div>{seconds}</div>
-      <div>{result}</div>
+    <div className="Score">
+      <div>{seconds} seconds</div>
+      <div>{amount} questions</div>
+      <div>{result} seconds/question</div>
     </div>
   );
 }

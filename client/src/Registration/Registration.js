@@ -1,3 +1,5 @@
+import "./Registration.css";
+
 function Registration({ registrationComplete }) {
   async function register() {
     const name = document.getElementById("name").value;
@@ -14,11 +16,10 @@ function Registration({ registrationComplete }) {
   }
 
   return (
-    <div>
-      <div>registration</div>
-      <input id="name" type="text" />
-      <input id="amount" type="text" />
-      <button onClick={register}>go</button>
+    <div className="Registration">
+      <input id="name" type="text" placeholder="Name" />
+      <input id="amount" type="text" placeholder="Amount" />
+      <button onClick={register}>Go!</button>
     </div>
   );
 }

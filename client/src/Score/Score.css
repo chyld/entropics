@@ -1,0 +1,10 @@
+.Score {
+    color: #E63946;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 50px;
+    font-weight: bold;
+    border: 1px solid #E63946;
+    width: 250px;
+    padding: 25px;
+    background-color: #F1FAEE;
+}

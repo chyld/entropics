@@ -1,0 +1,26 @@
+.Evaluate {
+    color : #1D3557;
+}
+
+.Evaluate > h1 {
+    font-size: 50px;
+}
+
+.Evaluate > button {
+    color: #1D3557;
+    /* border: 1px solid #1D3557; */
+    font-size: 15px;
+    padding: 0px 10px 0px 10px;
+}
+
+.Evaluate > #header {
+    display: inline-block;
+    margin-left: 25px;
+    color: #457B9D;
+}
+
+.Evaluate > #header > .info {
+    color: #1D3557;
+    text-decoration: underline;
+    padding: 15px;
+}
