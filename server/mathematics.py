@@ -3,9 +3,35 @@ from operator import add, sub
 
 
 def randomizer():
-    fns = [add_sub, mul, div, mod, square_root, binary, greek, equation]
+    fns = [
+        dot,
+        dot,
+        add_sub,
+        add_sub,
+        mul,
+        div,
+        mod,
+        square_root,
+        binary,
+        binary,
+        greek,
+        greek,
+        greek,
+        greek,
+        equation,
+    ]
     fn = choice(fns)
     return fn
+
+
+def dot():
+    v1, v2 = [], []
+    for _ in range(randint(1, 3)):
+        v1.append(randint(1, 9))
+        v2.append(randint(1, 9))
+    answer = sum([a * b for a, b in zip(v1, v2)])
+    problem = rf"\alpha = {v1} \: \beta = {v2} \: \overrightarrow{{\alpha\beta}}"
+    return problem, answer
 
 
 def add_sub():
