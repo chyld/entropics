@@ -4,6 +4,9 @@ from operator import add, sub
 
 def randomizer():
     fns = [
+        two_pow,
+        two_pow,
+        two_pow,
         dot,
         dot,
         add_sub,
@@ -22,6 +25,13 @@ def randomizer():
     ]
     fn = choice(fns)
     return fn
+
+
+def two_pow():
+    a = randint(0, 20)
+    problem = rf"2^{{{a}}}"
+    answer = 2**a
+    return problem, answer
 
 
 def dot():
