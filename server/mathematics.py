@@ -21,6 +21,9 @@ def randomizer():
         greek,
         greek,
         greek,
+        greek,
+        greek,
+        greek,
         equation,
     ]
     fn = choice(fns)
