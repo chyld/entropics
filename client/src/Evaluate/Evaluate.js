@@ -37,7 +37,7 @@ function Evaluate() {
   }
 
   async function score() {
-    const response = await fetch("http://localhost:8000/score", {
+    const response = await fetch(`http://${process.env.REACT_APP_IP_ADDRESS}:8000/score`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ iid }),

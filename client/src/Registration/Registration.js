@@ -5,7 +5,7 @@ function Registration({ registrationComplete }) {
     const name = document.getElementById("name").value;
     const amount = parseInt(document.getElementById("amount").value);
 
-    const response = await fetch("http://localhost:8000/register", {
+    const response = await fetch(`http://${process.env.REACT_APP_IP_ADDRESS}:8000/register`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, amount }),

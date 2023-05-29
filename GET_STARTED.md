@@ -1,15 +1,11 @@
-````
-pip install fastapi uvicorn
-uvicorn main:app
-```
+# to build
 
 ```
-npm install
-npm start
+docker compose build --build-arg REACT_APP_IP_ADDRESS="1.2.3.4"
 ```
 
+# to run
+
 ```
-npm run build
-npm install -g serve
-serve -s build
+docker compose up -d
 ```

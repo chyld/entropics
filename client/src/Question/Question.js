@@ -13,7 +13,7 @@ function Question({ random, done }) {
   };
 
   const fetchQuestion = async () => {
-    const response = await fetch("http://localhost:8000/question");
+    const response = await fetch(`http://${process.env.REACT_APP_IP_ADDRESS}:8000/question`);
     const obj = await response.json();
     let html = window.MathJax.tex2svg(obj.problem);
     setHtml(html.outerHTML);
